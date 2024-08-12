@@ -15,3 +15,6 @@ git clone --depth 1 https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git pac
 
 # OpenClash
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+# 8168
+git clone --depth 1 -b master  https://github.com/paperbluster/openwrt-r8168 package/r8168
