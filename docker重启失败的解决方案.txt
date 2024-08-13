@@ -1,0 +1,29 @@
+
+通过 SSH 登录到你的 OpenWrt 路由器。
+opkg update
+opkg install nano
+创建一个自定义启动脚本，例如：
+
+
+nano /etc/init.d/remountdocker
+在脚本中添加以下内容：
+
+
+#!/bin/sh /etc/rc.common
+# This script remounts the root filesystem as read-write at startup
+
+START=20
+
+start() {
+    mount -o remount rw /
+    /etc/init.d/dockerd restart
+}
+保存文件并退出编辑器。
+使脚本可执行：
+
+
+chmod +x /etc/init.d/remountdocker
+启用脚本，使其在启动时自动运行：
+
+
+/etc/init.d/remountdocker enable
