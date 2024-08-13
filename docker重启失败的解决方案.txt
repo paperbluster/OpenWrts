@@ -15,6 +15,7 @@ nano /etc/init.d/remountdocker
 START=20
 
 start() {
+    e2fsck -y /dev/mmcblk0p2
     mount -o remount rw /
     /etc/init.d/dockerd restart
 }
